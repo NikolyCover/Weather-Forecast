@@ -5,7 +5,8 @@ const api = {
     units: "metric"
 }
 
-let obj = {
-    name: "nikoly",
-    idade: 17
-}
+fetch(`${api.base}weather?q=${city = 'Foz Do Iguaçu'}&lang=${api.lang}&units=${api.units}&appid=${api.key}`)
+    .then(response => { response.json()
+        .then( data => console.log(data))
+    })
+    .catch(e => console.log(`Error: ${e.message}`))
