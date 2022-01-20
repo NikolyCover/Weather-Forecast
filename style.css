@@ -9,6 +9,14 @@
     font-weight: 400;
 }
 
+.font-weight-medium {
+    font-weight: 500;
+}
+
+.border-radios {
+    border-radius: 20px;
+}
+
 /*menu*/
 
 .menu {
@@ -49,7 +57,17 @@
 /*main*/
 
 main {
-    margin: 32px 216px;
+    margin: 16px 216px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: #FFF;
+}
+
+.base-info {
+    margin: 32px 0;
+    flex-basis: 100%;
+    color: #000;
 }
 
 .city-name {
@@ -58,6 +76,47 @@ main {
 
 .date {
     font-size: 16px;
+}
+
+.weather-card {
+    background-color: #7B8BB4;
+    flex-basis: 38%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 16px;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.weather-card .temperature {
+    font-size: 48px;
+}
+
+.weather-card .weather-icon {
+    width: 42%;
+}
+
+.weather-infos {
+    background-color: #88b47b;
+    flex-basis: 58%;
+    padding: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weather-infos p {
+    flex-basis: 40%;
+}
+
+.weather-forecast {
+    margin-top: 4%;
+}
+
+.forecast-card {
+    background-color: #b4b07b;
 }
 
 footer {
