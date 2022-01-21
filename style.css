@@ -117,6 +117,15 @@ main {
     position: relative;
 }
 
+.weather-forecast .cards-container {
+    overflow-x: hidden;
+}
+
+.weather-forecast .track {
+    display: flex;
+    transition: transform .5s;
+}
+
 .weather-forecast .forecast-card {
     background-color: #7B8BB4;
     width: 16.8%;
@@ -124,6 +133,10 @@ main {
     padding: 15px;
     margin-right: 4%;
     text-align: center;
+}
+
+#last {
+    margin-right: 0;
 }
 
 .weather-forecast .forecast-card img {
@@ -140,12 +153,6 @@ main {
     margin-left: 2vw;
 }
 
-
-.weather-forecast .track {
-    display: flex;
-    overflow: hidden;
-}
-
 .nav button {
     width: 32px;
     background: none;
@@ -153,6 +160,7 @@ main {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    cursor: pointer;
 }
 
 .nav .prev {
