@@ -15,5 +15,3 @@ next.addEventListener('click', () => {
 prev.addEventListener('click', () => {
     track.style.transform = `translateX(0)`;
 })
-
-console.log(cardMargin)

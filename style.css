@@ -81,21 +81,21 @@ main {
     color: #FFF;
 }
 
-.base-info {
+#base-info {
     margin-bottom: 4vh;
     flex-basis: 100%;
     color: #000;
 }
 
-.city-name {
+#city-name {
     font-weight: 500;
 }
 
-.date {
+#date {
     font-size: 16px;
 }
 
-.weather-card {
+#weather-card {
     background-color: #7B8BB4;
     flex-basis: 38%;
     display: flex;
@@ -106,15 +106,15 @@ main {
     font-size: 24px;
 }
 
-.weather-card .temperature {
+#weather-card #current-temp {
     font-size: 48px;
 }
 
-.weather-card .weather-icon {
+#weather-card #weather-icon {
     width: 42%;
 }
 
-.weather-infos {
+#weather-infos {
     background-color: #7B8BB4;
     flex-basis: 58%;
     padding: 32px;
@@ -124,7 +124,7 @@ main {
     align-items: center;
 }
 
-.weather-infos p {
+#weather-infos p {
     flex-basis: 40%;
 }
 
