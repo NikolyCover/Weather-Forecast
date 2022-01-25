@@ -17,6 +17,20 @@
     border-radius: 20px;
 }
 
+.svg-button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.svg-button svg path {
+    transition: all .2s;
+}
+
+.svg-button:hover{
+    color: #EC6E4C;
+}
+
 /*menu*/
 
 .menu {
@@ -46,8 +60,11 @@
     width: 20vw;
 }
 
-.search-icon img {
-    color: #000;
+.search-box input:focus {
+    outline: 0;
+}
+
+.search-icon svg {
     width: 24px;
     height: 100%;
     vertical-align: middle;
@@ -153,21 +170,18 @@ main {
     margin-left: 2vw;
 }
 
-.nav button {
+.nav-carousel button {
     width: 32px;
-    background: none;
-    border: none;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    cursor: pointer;
 }
 
-.nav .prev {
+.nav-carousel .prev {
     left: -8%;
 }
 
-.nav .next {
+.nav-carousel .next {
     right: -8%;
 }
 
