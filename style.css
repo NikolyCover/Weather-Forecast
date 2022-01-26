@@ -28,7 +28,12 @@
 }
 
 .svg-button:hover{
+    color: #48484A;
     color: #EC6E4C;
+}
+
+.svg-button:active{
+    color: #48484A;
 }
 
 /*menu*/
@@ -46,6 +51,7 @@
     display: inline-block;
     font-weight: 500;
     font-size: 24px;
+    color: #FFF;
 }
 
 .search-box {
@@ -64,7 +70,7 @@
     outline: 0;
 }
 
-.search-icon svg {
+.search-city-button svg {
     width: 24px;
     height: 100%;
     vertical-align: middle;
