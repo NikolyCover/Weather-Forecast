@@ -36,6 +36,12 @@
     color: #48484A;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 /*menu*/
 
 .menu {
