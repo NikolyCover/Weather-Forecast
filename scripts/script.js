@@ -4,9 +4,8 @@ const next = document.querySelector('.next')
 const searchInput = document.querySelector('.search-city-input')
 const searchButton = document.querySelector('.search-city-button')
 
-const searchCity = city => {
-    insertData(request(city))
-}
+const searchCity = city => insertData(request(city))
+
 
 next.addEventListener('click', () => {
     track.style.transform = `translateX(-104%)`;
@@ -33,3 +32,7 @@ searchInput.addEventListener('keyup', event => {
 document.addEventListener("DOMContentLoaded", () => {
     searchInput.value = ""
 })
+
+(() => {
+    console.log("Vini is perfect")
+})()
