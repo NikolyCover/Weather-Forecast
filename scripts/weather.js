@@ -5,12 +5,12 @@ const api = {
     units: "metric"
 }
 
-function insertData(data) {
+function insertCurrentWeather(data) {
     const cityName = document.querySelector('#city-name')
     cityName.textContent = data.name + ' - ' + data.sys.country
 
     const date = document.querySelector('#date')
-    let dt = new Date();
+    let dt = new Date(data.dt * 1000)
     let day = String(dt.getDate()).padStart(2, '0')
     let month = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"][dt.getMonth()]
     let year = dt.getFullYear()
@@ -41,19 +41,57 @@ function insertData(data) {
     windy.textContent = Math.trunc(data.wind.speed * 3.708) //meter per second to km per hour
 }
 
+function inserWeatherForecast(data) {
+    let daysForecast = []
+
+    let today = new Date()
+    let ref = today.getDate()
+
+    data.list.forEach(e => {
+        let date = new Date(e.dt * 1000)
+
+        if(date.getDate() > ref) {
+            daysForecast.push(e)
+            ref += 1
+        }
+    })
+    
+    const weekDays = document.querySelectorAll('.weekDay-forecast')
+    weekDays.forEach((weekDay, i) => {
+        let dt = new Date(daysForecast[i].dt * 1000)
+        weekDay.textContent = ['dom.', 'seg.', 'ter.', 'qua.', 'qui.', 'sex.', 'sáb.'][dt.getDay()]
+    })
+
+    const icons = document.querySelectorAll('.icon-forecast')
+    icons.forEach((icon, i) => {
+        icon.src = `media/weather-icons/${daysForecast[i].weather[0].icon}.png`
+    })
+
+    const maxTemps = document.querySelectorAll('.maxTemp-forecast')
+    maxTemps.forEach((maxTemp, i) => {
+        maxTemp.textContent = Math.trunc(daysForecast[i].main.temp_max)
+    })
+
+    const minTemps = document.querySelectorAll('.minTemp-forecast')
+    minTemps.forEach((minTemp, i) => {
+        minTemp.textContent = Math.trunc(daysForecast[i].main.temp_min)
+    })
+}
+
 function request(cityName) {
+    //request current weather
     fetch(`${api.base}weather?q=${cityName}&lang=${api.lang}&units=${api.units}&appid=${api.key}`)
     .then(response => { response.json()
-        .then( data => insertData(data))
+        .then( data => insertCurrentWeather(data))
     })
     .catch(e => console.log(`Error: ${e.message}`))
 
-    /*fetch(`${api.base}forecast?q=${cityName}&lang=${api.lang}&units=${api.units}&appid=${api.key}`)
+    //request weather forecast
+    fetch(`${api.base}forecast?q=${cityName}&lang=${api.lang}&units=${api.units}&appid=${api.key}`)
     .then(response => { response.json()
-        .then( data => console.log(data))
+        .then( data => inserWeatherForecast(data))
     })
-    .catch(e => console.log(`Error: ${e.message}`))*/
-
+    .catch(e => console.log(`Error: ${e.message}`))
 }
 
-request('Brasilia')
+request('Brasília')
