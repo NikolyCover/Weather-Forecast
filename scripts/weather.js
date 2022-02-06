@@ -69,8 +69,6 @@ function insertWeatherForecast(data) {
 
 function request(latitude, longitude) {
 
-    console.log(longitude + '  ' + longitude)
-
     fetch(`${api.base}onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,hourly{part}&lang=${api.lang}&units=${api.units}&appid=${api.key}`)
     .then(response => { response.json()
         .then(data => insertWeatherForecast(data))
